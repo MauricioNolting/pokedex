@@ -18,13 +18,14 @@ const handleSubmit = (e) => {
     <main className="h-screen grid grid-rows-[1fr,_auto]">
         <section className="grid place-content-center text-center">
 
-            <div>
+            <div className="grid gap-5">
+                <img className="w-[200px] mx-auto relative top-24 -z-10" src="/img/pikachu.png" alt="" />
                 <img src="/img/logo.png" alt="" />
-                <h3>Hi Coach!</h3>
-                <p>To start, give me your name</p>
+                <h3 className="font-semibold text-md sm:text-xl">Hi Coach!</h3>
+                <p className="italic text-md sm:text-xl">To start, give me your name</p>
                 <form onSubmit={handleSubmit}>
-                    <input placeholder="Your name" type="text" name="trainerName"/>
-                    <button>Start</button>
+                    <input className="border-2  rounded-r-none px-3 py-1 rounded-lg border-black" placeholder="Your name" type="text" name="trainerName"/>
+                    <button className="border-2 relative w-[70px] bg-black text-white transition-all hover:bg-slate-700 border-l-0 py-1 rounded-r-lg border-black">Start</button>
                 </form>
             </div>
 

@@ -2,7 +2,7 @@ const HeaderPokedex = () => {
   return (
     <header>
     <div className="bg-red-600 h-16">
-        <div className="h-[36px] sm:h-full pl-4 translate-y-4 relative z-10">
+        <div className="h-[36 px] sm:h-full pl-4 translate-y-4 relative z-10">
         <img className="h-full w-auto" src="img/logo.png" alt="" />
         </div>
     </div>

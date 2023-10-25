@@ -87,19 +87,19 @@ useEffect(() => {
   return (
     <main>
         <HeaderPokedex/>
-        <section>
-            <p>
-                <span className="text-red-500">Welcome {trainerName},</span> here you can find your favorite pokemon.
+        <section className="m-2 border-r-2 border-l-2 border-t-2 border-black rounded-2xl italic text-center grid gap-4 max-w-[700px] mx-auto" >
+            <p className="">
+                <span className="text-red-500 text-center">Welcome {trainerName},</span> here you can find your favorite pokemon.
             </p>
             
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <input type="text" name="pokemonName"/>
-                    <button>Search</button>
+            <form onSubmit={handleSubmit} className="grid gap-3 justify-center">
+                <div className="">
+                    <input className="border-2 border-r-0 px-2 py-1 rounded-xl border-red-400" type="text" name="pokemonName"/>
+                    <button className="border-2 border-l-0 px-2 py-1 rounded-xl border-slate-800">Search</button>
                 </div>
 
-                <select onChange={handleChangeType}>
-                    <option value="">All pokemons</option>
+                <select onChange={handleChangeType} className="w-[250px] h-[40px] px-3 border-2 bg-red-500 rounded-full text-white font-semibold capitalize hover:bg-red-600 cursor-pointer">
+                    <option value="" className="text-center">All pokemons</option>
                     {
                         types.map((type) => <option value={type.name} key={type?.name}>{type?.name}</option>)
                     }
@@ -113,15 +113,15 @@ useEffect(() => {
                       {
                         currentPage !== 1 &&
                           <li>
-                          <button onClick={handlePreviustPage}>{"<"}</button>
+                          <button className="bg-red-500 rounded-full w-8 h-8 hover:bg-red-700 border-2 border-black text-center" onClick={handlePreviustPage}>{"<"}</button>
                           </li>
                       }
                         {
-                        pagesInCurrentBlock.map((page) => (<li key={page}><button onClick={() => setCurrentPage(page)} className={`p-2 text-white font-bold rounded-md ${currentPage === page ? "bg-red-500" : "bg-red-400"}`}>{page}</button></li>))
+                        pagesInCurrentBlock.map((page) => (<li key={page}><button onClick={() => setCurrentPage(page)} className={`p-2 text-white font-bold rounded-tl-none rounded-lg rounded-br-none hover:bg-red-500 border-2 border-black ${currentPage === page ? "bg-red-500" : "bg-red-400"}`}>{page}</button></li>))
                         }
                         {
-                            currentPage !== lastPage && <li>
-                            <button onClick={handleNextPage}>{">"}</button>
+                            currentPage !== lastPage && <li className="h-full">
+                            <button className="bg-red-500 rounded-full w-8 h-8 hover:bg-red-700 border-2 border-black text-center" onClick={handleNextPage}>{">"}</button>
                             </li>
                         }
                     </ul>

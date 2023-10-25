@@ -2,7 +2,7 @@ import axios from "axios"
 
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { bgByType, borderByType } from "../../constants/pokemons"
+import { bgByType, borderByType, hoverBorderByType } from "../../constants/pokemons"
 
 
 const PokemonoCard = ({pokemonUrl}) => {
@@ -11,7 +11,6 @@ const PokemonoCard = ({pokemonUrl}) => {
 
     const [pokemon, setPokemon] = useState([])
     const colorType = pokemon?.types?.[0].type.name
-console.log(pokemon)
     const types = pokemon?.types?.map((type) => type.type.name).join(" / ")
     
 
@@ -24,7 +23,7 @@ console.log(pokemon)
 
 
   return (
-   <Link to={`/pokedex/${pokemon?.id}`} className={` capitalize border-8 rounded-lg border-red-500 text-center ${borderByType[colorType]}`}>
+   <Link to={`/pokedex/${pokemon?.id}`} className={` capitalize border-8 rounded-lg text-center ${borderByType[colorType]} transition-all ${hoverBorderByType[colorType]} `}>
         <header className={`${bgByType[colorType]} h-[140px]`}></header>
         <div className="relative pt-10">
             <div className="absolute w-full -translate-y-[95%] ">
@@ -38,8 +37,9 @@ console.log(pokemon)
                 {
                 pokemon?.stats?.slice(0, 4).map((stat) => 
                                ( 
-                               <li className="grid gap-1" key={stat.stat.name}>
+                               <li className="grid m-1" key={stat.stat.name}>
                                     <h6 className="font semi-bold">{stat.stat.name}</h6>
+                                    <hr />
                                     <span className="font-bold">{stat.base_stat}</span>
                                 </li> 
                                 ))
